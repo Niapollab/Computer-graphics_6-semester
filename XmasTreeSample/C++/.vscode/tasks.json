@@ -1,0 +1,233 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Build \"Debug\" with dynamic linking",
+			"command": "g++.exe",
+			"args": [
+				"-D",
+				"DEBUG",
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-g3",
+				"-O0",
+				"-I",
+				"${workspaceFolder}",
+				"-I",
+				"${workspaceFolder}/include/freeglut",
+				"-L",
+				"${workspaceFolder}/lib/freeglut",
+				"*.cpp",
+				"-o",
+				"${workspaceFolder}/bin/${workspaceFolderBasename}.exe",
+				"-lglu32",
+				"-lfreeglut",
+				"-lopengl32"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Create bin folder",
+				"Copy freeglut.dll to bin folder"
+			]
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build \"Debug\" with static linking",
+			"command": "g++.exe",
+			"args": [
+				"-D",
+				"FREEGLUT_STATIC",
+				"-D",
+				"DEBUG",
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-g3",
+				"-O0",
+				"-I",
+				"${workspaceFolder}",
+				"-I",
+				"${workspaceFolder}/include/freeglut",
+				"-L",
+				"${workspaceFolder}/lib/freeglut",
+				"*.cpp",
+				"-o",
+				"${workspaceFolder}/bin/${workspaceFolderBasename}.exe",
+				"-lglu32",
+				"-lfreeglut_static",
+				"-lopengl32",
+				"-lwinmm",
+				"-lgdi32"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Create bin folder"
+			]
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build \"Release\" with dynamic linking",
+			"command": "g++.exe",
+			"args": [
+				"-mwindows",
+				"-D",
+				"RELEASE",
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-O3",
+				"-I",
+				"${workspaceFolder}",
+				"-I",
+				"${workspaceFolder}/include/freeglut",
+				"-L",
+				"${workspaceFolder}/lib/freeglut",
+				"*.cpp",
+				"-o",
+				"${workspaceFolder}/bin/${workspaceFolderBasename}.exe",
+				"-lglu32",
+				"-lfreeglut",
+				"-lopengl32"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Create bin folder",
+				"Copy freeglut.dll to bin folder"
+			]
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build \"Release\" with static linking",
+			"command": "g++.exe",
+			"args": [
+				"-mwindows",
+				"-D",
+				"FREEGLUT_STATIC",
+				"-D",
+				"RELEASE",
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-O3",
+				"-I",
+				"${workspaceFolder}",
+				"-I",
+				"${workspaceFolder}/include/freeglut",
+				"-L",
+				"${workspaceFolder}/lib/freeglut",
+				"*.cpp",
+				"-o",
+				"${workspaceFolder}/bin/${workspaceFolderBasename}.exe",
+				"-lglu32",
+				"-lfreeglut_static",
+				"-lopengl32",
+				"-lwinmm",
+				"-lgdi32"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Create bin folder"
+			]
+		},
+		{
+			"type": "shell",
+			"label": "Create bin folder",
+			"command": "if not exist bin mkdir bin",
+			"isBackground": true,
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"label": "Copy freeglut.dll to bin folder",
+			"command": "copy",
+			"args": [
+				"/y",
+				"lib\\freeglut\\freeglut.dll",
+				"bin\\freeglut.dll"
+			],
+			"isBackground": true,
+			"presentation": {
+				"echo": false,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": true
+			},
+			"problemMatcher": []
+		},
+	]
+}
