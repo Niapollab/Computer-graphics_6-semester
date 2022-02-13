@@ -6,6 +6,7 @@
 			"label": "Build \"Debug\" with dynamic linking",
 			"command": "g++.exe",
 			"args": [
+				"-fdiagnostics-color=always",
 				"-D",
 				"DEBUG",
 				"-std=c++17",
@@ -52,6 +53,7 @@
 			"label": "Build \"Debug\" with static linking",
 			"command": "g++.exe",
 			"args": [
+				"-fdiagnostics-color=always",
 				"-D",
 				"FREEGLUT_STATIC",
 				"-D",
@@ -104,6 +106,7 @@
 			"label": "Build \"Release\" with dynamic linking",
 			"command": "g++.exe",
 			"args": [
+				"-fdiagnostics-color=always",
 				"-mwindows",
 				"-D",
 				"RELEASE",
@@ -150,6 +153,7 @@
 			"label": "Build \"Release\" with static linking",
 			"command": "g++.exe",
 			"args": [
+				"-fdiagnostics-color=always",
 				"-mwindows",
 				"-D",
 				"FREEGLUT_STATIC",
